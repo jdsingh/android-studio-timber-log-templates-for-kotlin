@@ -1,57 +1,51 @@
 <templateSet group="AndroidLogKotlin">
-  <template name="logd" value="android.util.Log.d(TAG, &quot;$KOTLIN_FUNCTION_NAME$: $content$&quot;)" description="Log.d(TAG, String)" toReformat="true" toShortenFQNames="true">
+  <template name="logd" value="timber.log.Timber.d(&quot;$KOTLIN_FUNCTION_NAME$: $content$&quot;)" description="Timber.d(String)" toReformat="true" toShortenFQNames="true">
     <variable name="KOTLIN_FUNCTION_NAME" expression="kotlinFunctionName()" defaultValue="" alwaysStopAt="false" />
     <variable name="content" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="KOTLIN_STATEMENT" value="true" />
     </context>
   </template>
-  <template name="loge" value="android.util.Log.e(TAG, &quot;$KOTLIN_FUNCTION_NAME$: $content$&quot;, $exception$)" description="Log.e(TAG, String, Exception)" toReformat="true" toShortenFQNames="true">
-    <variable name="KOTLIN_FUNCTION_NAME" expression="kotlinFunctionName()" defaultValue="" alwaysStopAt="false" />
-    <variable name="content" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="exception" expression="" defaultValue="e" alwaysStopAt="false" />
-    <context>
-      <option name="KOTLIN_STATEMENT" value="true" />
-    </context>
-  </template>
-  <template name="logi" value="android.util.Log.i(TAG, &quot;$KOTLIN_FUNCTION_NAME$: $content$&quot;)" description="Log.i(TAG, String)" toReformat="true" toShortenFQNames="true">
+  <template name="loge" value="timber.log.Timber.e($exception$, &quot;$KOTLIN_FUNCTION_NAME$: $content$&quot;)" description="Timber.e(Exception, String)" toReformat="true" toShortenFQNames="true">
+    <variable name="exception" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="KOTLIN_FUNCTION_NAME" expression="kotlinFunctionName()" defaultValue="" alwaysStopAt="false" />
     <variable name="content" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="KOTLIN_STATEMENT" value="true" />
     </context>
   </template>
-  <template name="logm" value="android.util.Log.d(TAG, $content$)" description="Log method name and its arguments" toReformat="true" toShortenFQNames="true">
+  <template name="logi" value="timber.log.Timber.i(&quot;$KOTLIN_FUNCTION_NAME$: $content$&quot;)" description="Timber.i(String)" toReformat="true" toShortenFQNames="true">
+    <variable name="KOTLIN_FUNCTION_NAME" expression="kotlinFunctionName()" defaultValue="" alwaysStopAt="false" />
+    <variable name="content" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="KOTLIN_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="logm" value="timber.log.Timber.d($content$)" description="Log method name and its arguments" toReformat="true" toShortenFQNames="true">
     <variable name="content" expression="groovyScript(&quot;def params = _2.collect {it + ' = [$' + it + ']'}.join(', '); return '\&quot;' + _1 + '() called' + (params.empty  ? '' : ' with: ' + params) + '\&quot;'&quot;, kotlinFunctionName(), functionParameters())" defaultValue="" alwaysStopAt="false" />
     <context>
       <option name="KOTLIN_STATEMENT" value="true" />
     </context>
   </template>
-  <template name="logr" value="android.util.Log.d(TAG, &quot;$KOTLIN_FUNCTION_NAME$() returned: $$$result$&quot;)" description="Log result of this method" toReformat="true" toShortenFQNames="true">
+  <template name="logr" value="timber.log.Timber.d(&quot;$KOTLIN_FUNCTION_NAME$() returned: $$$result$&quot;)" description="Log result of this method" toReformat="true" toShortenFQNames="true">
     <variable name="KOTLIN_FUNCTION_NAME" expression="kotlinFunctionName()" defaultValue="" alwaysStopAt="false" />
     <variable name="result" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="KOTLIN_STATEMENT" value="true" />
     </context>
   </template>
-  <template name="logt" value="companion object {&#10;    private const val TAG = &quot;$kotlinClassName$&quot;&#10;}" description="A companion object containing a logtag with your current classname" toReformat="true" toShortenFQNames="true">
-    <variable name="kotlinClassName" expression="groovyScript(&quot;_1.take(Math.min(23, _1.length()));&quot;, kotlinClassName())" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="KOTLIN_CLASS" value="true" />
-    </context>
-  </template>
-  <template name="logw" value="android.util.Log.w(TAG, &quot;$KOTLIN_FUNCTION_NAME$: $content$&quot;, $exception$)" description="Log.w(TAG, String, Exception)" toReformat="true" toShortenFQNames="true">
+  <template name="logw" value="timber.log.Timber.w($exception$, &quot;$KOTLIN_FUNCTION_NAME$: $content$&quot;)" description="Timber.w(Exception, String)" toReformat="true" toShortenFQNames="true">
+    <variable name="exception" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="KOTLIN_FUNCTION_NAME" expression="kotlinFunctionName()" defaultValue="" alwaysStopAt="false" />
     <variable name="content" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="exception" expression="" defaultValue="e" alwaysStopAt="false" />
     <context>
       <option name="KOTLIN_STATEMENT" value="true" />
     </context>
   </template>
-  <template name="wtf" value="android.util.Log.wtf(TAG, &quot;$KOTLIN_FUNCTION_NAME$: $content$&quot;, $exception$)" description="Log.wtf(TAG, String, Exception)" toReformat="true" toShortenFQNames="true">
+  <template name="wtf" value="timber.log.Timber.wtf($exception$, &quot;$KOTLIN_FUNCTION_NAME$: $content$&quot;)" description="Timber.wtf(Exception, String)" toReformat="true" toShortenFQNames="true">
+    <variable name="exception" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="KOTLIN_FUNCTION_NAME" expression="kotlinFunctionName()" defaultValue="" alwaysStopAt="false" />
     <variable name="content" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="exception" expression="" defaultValue="e" alwaysStopAt="false" />
     <context>
       <option name="KOTLIN_STATEMENT" value="true" />
     </context>

@@ -20,7 +20,7 @@ The templates will be available after restarting Android Studio.
 
 # Usage
 
-## logd - Timber.d(TAG, String)
+## logd - Timber.d(String)
 
 ```kotlin
     Timber.d("divide: foo")
@@ -35,32 +35,32 @@ The templates will be available after restarting Android Studio.
 ## logi - Timber.i(String)
 
 ```kotlin
-    Timber.i(TAG, "divide: foo")
+    Timber.i("divide: foo")
 ```
 
 ## logm - Log method name and its arguments
 
 ```kotlin
-    Timber.d(TAG, "divide() called with: a = [$a], b = [$b]")
+    Timber.d("divide() called with: a = [$a], b = [$b]")
 ```
 
 ## logr - Log result of this method
 
 ```kotlin
-    Timber.d(TAG, "divide() returned: $result")
+    Timber.d("divide() returned: $result")
 ```
     
-## logw - Log.w(TAG, String, Exception)
+## logw - Log.w(Exception, String)
 
 ```kotlin
-    Timber.w(TAG, "divide: foo", e)
+    Timber.w(e, "divide: foo")
 ```
     
-## wtf - Log.wtf(TAG, String, Exception)
+## wtf - Log.wtf(Exception, String)
 
 
 ```kotlin
-    Timber.wtf(TAG, "divide: foo", e)
+    Timber.wtf(e, "divide: foo")
 ```
 
 **Note:** Any changes you've made to the Java log templates will get lost as the 'AndroidLog.xml' file is overwritten. You can prevent this by merging the XML files manually.
